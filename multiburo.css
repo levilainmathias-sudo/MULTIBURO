@@ -1,0 +1,583 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #0d0d0d;
+  color: #f5f0e8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+/* ===== NAVIGATION ENTRE PAGES ===== */
+
+/* Page d'accueil : visible par défaut */
+#accueil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Pages secondaires : cachées par défaut */
+.page {
+  display: none;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Une page s'affiche quand son lien est cliqué */
+.page:target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ...et dans ce cas, on cache l'accueil */
+body:has(.page:target) #accueil {
+  display: none;
+}
+
+/* ===== HEADER / LOGIN ===== */
+.login-link {
+  position: absolute;
+  top: 28px;
+  right: 40px;
+  font-size: 0.95rem;
+  color: #e8e0d5;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.login-link:hover {
+  opacity: 1;
+}
+
+/* ===== LOGO / TITLE ===== */
+.brand {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.brand h1 {
+  font-size: 3.8rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #f8f1e7;
+  margin-bottom: 12px;
+}
+
+.underline {
+  width: 70px;
+  height: 3px;
+  background: #e67e22;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* ===== CARDS CONTAINER ===== */
+.buildings {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1400px;
+  width: 100%;
+}
+
+/* ===== SINGLE CARD ===== */
+.card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 620px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 50px rgba(0, 0, 0, 0.55);
+}
+
+/* ===== PHOTO ===== */
+.photo {
+  height: 240px;
+  background: #2a221c;
+  overflow: hidden;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .photo img {
+  transform: scale(1.05);
+}
+
+/* ===== CARD CONTENT ===== */
+.card-content {
+  padding: 28px 32px 32px;
+  text-align: center;
+}
+
+.card-content h2 {
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: #f5f0e8;
+  margin-bottom: 6px;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: #b8a99a;
+  margin-bottom: 24px;
+}
+
+/* ===== BOUTONS GÉNÉRIQUES ===== */
+.btn {
+  display: inline-block;
+  background: #e67e22;
+  color: #1a120b;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 36px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: #f39c12;
+  transform: translateY(-2px);
+}
+
+/* Bouton secondaire (Retour des pages Bâtiment) */
+.btn-back {
+  background: transparent;
+  color: #e8e0d5;
+  border: 1px solid #5a4a3a;
+}
+
+.btn-back:hover {
+  background: #2a221c;
+  border-color: #e67e22;
+}
+
+/* ===== PAGES BÂTIMENTS ===== */
+.page-card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  padding: 48px;
+  width: 100%;
+  text-align: center;
+}
+
+.page-card h2 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #f8f1e7;
+  margin-bottom: 12px;
+}
+
+.page-card .underline {
+  margin-bottom: 28px;
+}
+
+.page-card p {
+  color: #b8a99a;
+  margin-bottom: 32px;
+}
+
+/* ===== TABLEAU DES RESSOURCES (BÂTIMENTS) ===== */
+.table-ressources {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.table-ressources thead tr:first-child th {
+  padding: 22px 20px 18px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: #f8f1e7;
+  border-bottom: 3px solid #e67e22;
+}
+
+.table-ressources thead tr:nth-child(2) th {
+  padding: 14px 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b8a99a;
+  background: #221c16;
+}
+
+.table-ressources tbody td {
+  padding: 14px 20px;
+  color: #f5f0e8;
+  border-bottom: 1px solid #2a221c;
+}
+
+.table-ressources tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-ressources tbody tr {
+  transition: background 0.2s ease;
+}
+
+.table-ressources tbody tr:nth-child(even) {
+  background: #1f1b17;
+}
+
+.table-ressources tbody tr:hover {
+  background: #2a221c;
+}
+
+.table-ressources tbody td:first-child {
+  color: #b8a99a;
+}
+
+.table-ressources tbody td:nth-child(2) {
+  font-weight: 600;
+}
+
+.table-ressources th:nth-child(n+3),
+.table-ressources td:nth-child(n+3) {
+  text-align: center;
+}
+
+.btn-reserver {
+  background: #e67e22;
+  color: #1a120b;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-reserver:hover {
+  background: #f39c12;
+  transform: translateY(-2px);
+}
+
+.btn-reserver:focus-visible {
+  outline: 2px solid #f39c12;
+  outline-offset: 2px;
+}
+
+/* ===== PAGE ET CARTE D'INSCRIPTION ===== */
+section#Inscription.page {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+section#Inscription.page:target {
+  display: flex;
+}
+
+/* Carte sombre englobante */
+section#Inscription .divinscri {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+section#Inscription .divinscri h2 {
+  text-align: center;
+  font-size: 26px;
+  margin: 0 0 8px 0;
+  color: #f8f1e7;
+}
+
+section#Inscription .divinscri .underline {
+  width: 50px;
+  height: 3px;
+  background-color: #e67e22;
+  margin: 0 auto 25px auto;
+  border-radius: 2px;
+}
+
+/* Alignement du formulaire */
+section#Inscription .divinscri table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+section#Inscription .divinscri td:first-child {
+  text-align: right;
+  padding-right: 15px;
+  font-size: 13px;
+  color: #b8a99a;
+  white-space: nowrap;
+  width: 45%;
+}
+
+section#Inscription .divinscri td:last-child {
+  width: 55%;
+}
+
+/* Champs de texte */
+section#Inscription .divinscri input[type="text"],
+section#Inscription .divinscri input[type="email"],
+section#Inscription .divinscri input[type="password"] {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #000000;
+  box-sizing: border-box;
+  font-size: 13px;
+  outline: none;
+}
+
+section#Inscription .divinscri input[type="radio"] {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+section#Inscription .divinscri label {
+  font-size: 13px;
+  color: #f5f0e8;
+  cursor: pointer;
+}
+
+/* ===== CONTENEUR & BOUTONS ALIGNÉS ===== */
+section#Inscription .divinscri .form-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  width: 100%;
+}
+
+/* Style réinitialisé pour les deux boutons */
+section#Inscription .divinscri .form-buttons .btn-back-inscri,
+section#Inscription .divinscri .form-buttons .btn-submit {
+  flex: 1;
+  text-align: center;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+/* 1. Bouton Retour : Transparent / Contour sombre */
+section#Inscription .divinscri .form-buttons .btn-back-inscri {
+  background-color: transparent;
+  color: #e8e0d5;
+  border: 1px solid #5a4a3a;
+}
+
+section#Inscription .divinscri .form-buttons .btn-back-inscri:hover {
+  background-color: #2a221c;
+  border-color: #e67e22;
+  color: #e67e22;
+}
+
+/* 2. Bouton Valider : Fond Orange / Texte foncé */
+section#Inscription .divinscri .form-buttons .btn-submit {
+  background-color: #e67e22;
+  color: #1a120b;
+  border: 1px solid #e67e22;
+}
+
+section#Inscription .divinscri .form-buttons .btn-submit:hover {
+  background-color: #f39c12;
+  border-color: #f39c12;
+  color: #1a120b;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .brand h1 {
+    font-size: 2.8rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .buildings {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-link {
+    top: 18px;
+    right: 20px;
+    font-size: 0.85rem;
+  }
+
+  .brand {
+    margin-bottom: 40px;
+  }
+
+  .brand h1 {
+    font-size: 2.3rem;
+  }
+
+  .page-card {
+    padding: 32px 20px;
+  }
+
+  .page-card h2 {
+    font-size: 1.9rem;
+  }
+
+  .table-ressources {
+    font-size: 0.85rem;
+  }
+
+  .table-ressources thead tr:first-child th {
+    font-size: 1rem;
+    padding: 18px 12px 14px;
+  }
+
+  .table-ressources thead tr:nth-child(2) th {
+    padding: 10px 12px;
+    font-size: 0.7rem;
+  }
+
+  .table-ressources tbody td {
+    padding: 10px 12px;
+  }
+
+  .btn-reserver {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+/* ===== POP-UP SUR MESURE ===== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-box {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 24px;
+  border: 6px solid #e67e22; /* Bordure par défaut */
+  text-align: center;
+  max-width: 360px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease;
+}
+
+/* Modificateur Succès (Vert) */
+.popup-box.success {
+  border-color: #00b862;
+}
+
+.popup-box.success p {
+  color: #00b862;
+}
+
+/* Modificateur Erreur (Rouge) */
+.popup-box.error {
+  border-color: #ff3b30;
+}
+
+.popup-box.error p {
+  color: #ff3b30;
+}
+
+.popup-box p {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-popup {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.btn-popup:hover {
+  transform: translateY(-2px);
+}
+
+.btn-cancel {
+  background: #e0e0e0;
+  color: #333333;
+}
+
+.btn-confirm {
+  background: #e67e22;
+  color: #ffffff;
+}

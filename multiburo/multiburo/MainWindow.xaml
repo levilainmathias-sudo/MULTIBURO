@@ -1,0 +1,205 @@
+﻿<Window x:Class="multiburo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:multiburo"
+        mc:Ignorable="d"
+        Title="Multiburo - Back-office"
+        Height="600" Width="980" MinHeight="520" MinWidth="860"
+        WindowStartupLocation="CenterScreen"
+        Background="#6E95AF">
+
+    <Window.Resources>
+        <Style x:Key="Carte" TargetType="Border">
+            <Setter Property="Background" Value="#F2F5F7"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="16"/>
+        </Style>
+
+        <Style x:Key="Etiquette" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#2B3A45"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,10,0,3"/>
+        </Style>
+
+        <Style x:Key="Champ" TargetType="Control">
+            <Setter Property="Background" Value="#E3DCD0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="6,4"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="StyleBouton" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#3D6480"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="14,7"/>
+            <Setter Property="Margin" Value="0,0,8,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Fond" Background="{TemplateBinding Background}"
+                                CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Fond" Property="Opacity" Value="0.85"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Fond" Property="Opacity" Value="0.4"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BoutonDanger" TargetType="Button" BasedOn="{StaticResource StyleBouton}">
+            <Setter Property="Background" Value="#B23A3A"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+
+        <!-- Identification -->
+        <Border x:Name="PageConnexion" Style="{StaticResource Carte}" Padding="75"
+                Width="800" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+            <StackPanel>
+                <TextBlock Text="Multiburo" FontSize="32" FontWeight="Light"
+                           Foreground="#2B3A45" HorizontalAlignment="Center"/>
+                <TextBlock Text="Back-office gestionnaire" Foreground="#5A6B77"
+                           HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Identifiant (adresse e-mail)" Style="{StaticResource Etiquette}"/>
+                <TextBox x:Name="IdAdmin" Style="{StaticResource Champ}"/>
+
+                <TextBlock Text="Mot de passe" Style="{StaticResource Etiquette}"/>
+                <PasswordBox x:Name="MdpAdmin" Style="{StaticResource Champ}"/>
+
+                <TextBlock x:Name="TxtErreurConnexion" Foreground="#B23A3A"
+                           TextWrapping="Wrap" Margin="0,10,0,0"/>
+
+                <Button x:Name="btnConnexion" Content="CONNEXION" IsDefault="True"
+                        Style="{StaticResource StyleBouton}" Margin="0,16,0,0"
+                        Click="BtnConnexion_Click"/>
+
+                <Button x:Name="BtnPremierAdmin" Visibility="Collapsed"
+                        Content="Premier lancement : créer ce compte gestionnaire"
+                        Style="{StaticResource StyleBouton}" Background="#6B7F8C" Margin="0,10,0,0"
+                        Click="BtnPremierAdmin_Click"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Application (après connexion) -->
+        <Grid x:Name="PageGestion" Visibility="Collapsed" Margin="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <DockPanel Margin="0,0,0,10">
+                <Button x:Name="BtnDeconnexion" DockPanel.Dock="Right" Content="Déconnexion"
+                        Style="{StaticResource StyleBouton}" Margin="0" Click="BtnDeconnexion_Click"/>
+                <TextBlock x:Name="TxtUtilisateur" Foreground="White" FontSize="15"
+                           FontWeight="SemiBold" VerticalAlignment="Center"/>
+            </DockPanel>
+
+            <TabControl Grid.Row="1" Background="#F2F5F7">
+
+                <!-- Ressources -->
+                <TabItem Header="Ressources">
+                    <Grid Margin="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="290"/>
+                        </Grid.ColumnDefinitions>
+
+                        <DockPanel Grid.Column="0" Margin="0,0,12,0">
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                                <TextBlock Text="Bâtiment :" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                                <ComboBox x:Name="CbFiltreBat" Width="150"
+                                          SelectionChanged="CbFiltreBat_SelectionChanged"/>
+                            </StackPanel>
+                            <DataGrid x:Name="DgRessources" AutoGenerateColumns="False" IsReadOnly="True"
+                                      SelectionMode="Single" CanUserAddRows="False" HeadersVisibility="Column"
+                                      GridLinesVisibility="Horizontal" AlternatingRowBackground="#E9EEF1"
+                                      SelectionChanged="DgRessources_SelectionChanged">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Type" Binding="{Binding LibType}" Width="1.1*"/>
+                                    <DataGridTextColumn Header="Référence" Binding="{Binding IdRessources}" Width="1.3*"/>
+                                    <DataGridTextColumn Header="Nom" Binding="{Binding Libelle}" Width="1.2*"/>
+                                    <DataGridTextColumn Header="Bâtiment" Binding="{Binding Batiment}" Width="*"/>
+                                    <DataGridTextColumn Header="Places" Binding="{Binding NbPlace}" Width="60"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </DockPanel>
+
+                        <Border Grid.Column="1" Style="{StaticResource Carte}" Background="#E3E9ED">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <TextBlock Text="Ressource" FontSize="18" FontWeight="SemiBold" Foreground="#2B3A45"/>
+
+                                    <TextBlock Text="Référence (ex. Bureau simple 21)" Style="{StaticResource Etiquette}"/>
+                                    <TextBox x:Name="TxtIdRessource" Style="{StaticResource Champ}"/>
+
+                                    <TextBlock Text="Nom" Style="{StaticResource Etiquette}"/>
+                                    <TextBox x:Name="TxtLibelle" Style="{StaticResource Champ}"/>
+
+                                    <TextBlock Text="Bâtiment" Style="{StaticResource Etiquette}"/>
+                                    <ComboBox x:Name="CbBatiment" Style="{StaticResource Champ}"/>
+
+                                    <TextBlock Text="Nombre de places" Style="{StaticResource Etiquette}"/>
+                                    <TextBox x:Name="TxtNbPlace" Style="{StaticResource Champ}"/>
+
+                                    <TextBlock Text="Type de ressource" Style="{StaticResource Etiquette}"/>
+                                    <ComboBox x:Name="CbType" Style="{StaticResource Champ}"
+                                              DisplayMemberPath="Libelle" SelectedValuePath="Id"/>
+
+                                    <WrapPanel Margin="0,18,0,0">
+                                        <Button Content="Créer" Style="{StaticResource StyleBouton}" Click="BtnCreerRessource_Click"/>
+                                        <Button Content="Modifier" Style="{StaticResource StyleBouton}" Click="BtnModifierRessource_Click"/>
+                                        <Button Content="Supprimer" Style="{StaticResource BoutonDanger}" Click="BtnSupprimerRessource_Click"/>
+                                        <Button Content="Vider" Style="{StaticResource StyleBouton}" Background="#6B7F8C"
+                                                Margin="0,8,0,0" Click="BtnVider_Click"/>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+                </TabItem>
+
+                <!-- Types de ressources -->
+                <TabItem Header="Types de ressources">
+                    <Grid Margin="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="290"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ListBox x:Name="LbTypes" Grid.Column="0" Margin="0,0,12,0"
+                                 DisplayMemberPath="Libelle" SelectionChanged="LbTypes_SelectionChanged"/>
+
+                        <Border Grid.Column="1" Style="{StaticResource Carte}" Background="#E3E9ED">
+                            <StackPanel>
+                                <TextBlock Text="Type" FontSize="18" FontWeight="SemiBold" Foreground="#2B3A45"/>
+
+                                <TextBlock Text="Libellé" Style="{StaticResource Etiquette}"/>
+                                <TextBox x:Name="TxtLibType" Style="{StaticResource Champ}"/>
+
+                                <WrapPanel Margin="0,18,0,0">
+                                    <Button Content="Ajouter" Style="{StaticResource StyleBouton}" Click="BtnAjouterType_Click"/>
+                                    <Button Content="Renommer" Style="{StaticResource StyleBouton}" Click="BtnRenommerType_Click"/>
+                                    <Button Content="Supprimer" Style="{StaticResource BoutonDanger}" Click="BtnSupprimerType_Click"/>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>

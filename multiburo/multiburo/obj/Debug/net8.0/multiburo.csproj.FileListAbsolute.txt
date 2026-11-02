@@ -1,0 +1,14 @@
+C:\Users\Mathias\source\repos\multiburo\multiburo\bin\Debug\net8.0\multiburo.exe
+C:\Users\Mathias\source\repos\multiburo\multiburo\bin\Debug\net8.0\multiburo.deps.json
+C:\Users\Mathias\source\repos\multiburo\multiburo\bin\Debug\net8.0\multiburo.runtimeconfig.json
+C:\Users\Mathias\source\repos\multiburo\multiburo\bin\Debug\net8.0\multiburo.dll
+C:\Users\Mathias\source\repos\multiburo\multiburo\bin\Debug\net8.0\multiburo.pdb
+C:\Users\Mathias\source\repos\multiburo\multiburo\obj\Debug\net8.0\multiburo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mathias\source\repos\multiburo\multiburo\obj\Debug\net8.0\multiburo.AssemblyInfoInputs.cache
+C:\Users\Mathias\source\repos\multiburo\multiburo\obj\Debug\net8.0\multiburo.AssemblyInfo.cs
+C:\Users\Mathias\source\repos\multiburo\multiburo\obj\Debug\net8.0\multiburo.csproj.CoreCompileInputs.cache
+C:\Users\Mathias\source\repos\multiburo\multiburo\obj\Debug\net8.0\multiburo.dll
+C:\Users\Mathias\source\repos\multiburo\multiburo\obj\Debug\net8.0\refint\multiburo.dll
+C:\Users\Mathias\source\repos\multiburo\multiburo\obj\Debug\net8.0\multiburo.pdb
+C:\Users\Mathias\source\repos\multiburo\multiburo\obj\Debug\net8.0\multiburo.genruntimeconfig.cache
+C:\Users\Mathias\source\repos\multiburo\multiburo\obj\Debug\net8.0\ref\multiburo.dll
