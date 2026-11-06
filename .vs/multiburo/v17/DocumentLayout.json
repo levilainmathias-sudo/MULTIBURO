@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\laragon\\www\\multiburo\\multiburo\\",
+  "WorkspaceRootPath": "C:\\Users\\Mathias\\Desktop\\mtscr\\epreuves\\Multiburo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{51F369D6-9C54-4AE7-8D59-705C3B5AED16}|multiburo\\multiburo.csproj|c:\\laragon\\www\\multiburo\\multiburo\\multiburo\\basemysql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{51F369D6-9C54-4AE7-8D59-705C3B5AED16}|multiburo\\multiburo.csproj|c:\\users\\mathias\\desktop\\mtscr\\epreuves\\multiburo\\multiburo\\basemysql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51F369D6-9C54-4AE7-8D59-705C3B5AED16}|multiburo\\multiburo.csproj|solutionrelative:multiburo\\basemysql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51F369D6-9C54-4AE7-8D59-705C3B5AED16}|multiburo\\multiburo.csproj|c:\\laragon\\www\\multiburo\\multiburo\\multiburo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{51F369D6-9C54-4AE7-8D59-705C3B5AED16}|multiburo\\multiburo.csproj|c:\\users\\mathias\\desktop\\mtscr\\epreuves\\multiburo\\multiburo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{51F369D6-9C54-4AE7-8D59-705C3B5AED16}|multiburo\\multiburo.csproj|solutionrelative:multiburo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51F369D6-9C54-4AE7-8D59-705C3B5AED16}|multiburo\\multiburo.csproj|c:\\laragon\\www\\multiburo\\multiburo\\multiburo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{51F369D6-9C54-4AE7-8D59-705C3B5AED16}|multiburo\\multiburo.csproj|c:\\users\\mathias\\desktop\\mtscr\\epreuves\\multiburo\\multiburo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51F369D6-9C54-4AE7-8D59-705C3B5AED16}|multiburo\\multiburo.csproj|solutionrelative:multiburo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -28,9 +28,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "BaseMySql.cs",
-              "DocumentMoniker": "C:\\laragon\\www\\multiburo\\multiburo\\multiburo\\BaseMySql.cs",
+              "DocumentMoniker": "C:\\Users\\Mathias\\Desktop\\mtscr\\epreuves\\Multiburo\\multiburo\\BaseMySql.cs",
               "RelativeDocumentMoniker": "multiburo\\BaseMySql.cs",
-              "ToolTip": "C:\\laragon\\www\\multiburo\\multiburo\\multiburo\\BaseMySql.cs",
+              "ToolTip": "C:\\Users\\Mathias\\Desktop\\mtscr\\epreuves\\Multiburo\\multiburo\\BaseMySql.cs",
               "RelativeToolTip": "multiburo\\BaseMySql.cs",
               "ViewState": "AgIAAJ4AAAAAAAAAAAAAAEoBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -41,26 +41,24 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\laragon\\www\\multiburo\\multiburo\\multiburo\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Mathias\\Desktop\\mtscr\\epreuves\\Multiburo\\multiburo\\MainWindow.xaml",
               "RelativeDocumentMoniker": "multiburo\\MainWindow.xaml",
-              "ToolTip": "C:\\laragon\\www\\multiburo\\multiburo\\multiburo\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Mathias\\Desktop\\mtscr\\epreuves\\Multiburo\\multiburo\\MainWindow.xaml",
               "RelativeToolTip": "multiburo\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-11-01T13:39:18.708Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-01T13:39:18.708Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\laragon\\www\\multiburo\\multiburo\\multiburo\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Mathias\\Desktop\\mtscr\\epreuves\\Multiburo\\multiburo\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "multiburo\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\laragon\\www\\multiburo\\multiburo\\multiburo\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Mathias\\Desktop\\mtscr\\epreuves\\Multiburo\\multiburo\\MainWindow.xaml.cs",
               "RelativeToolTip": "multiburo\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-27T16:23:47.181Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-27T16:23:47.181Z"
             }
           ]
         }

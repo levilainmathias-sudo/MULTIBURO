@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("multiburo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab6ca9a8a934b56e3bcc25eb408e10f042f0c70f")]
 [assembly: System.Reflection.AssemblyProductAttribute("multiburo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("multiburo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
